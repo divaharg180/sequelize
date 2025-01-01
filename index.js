@@ -24,7 +24,10 @@ const User = sequelize.define('user', {
     },
     username: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            len: [4, 6]
+        }
     },
     password: {
         type: Sequelize.DataTypes.STRING
@@ -65,21 +68,16 @@ User.sync({ alter: true }).then(() => {
     // TODO:// // 2 way
     return User.bulkCreate([
         {
-            username: "deva",
-            age: 25,
-            password: "54gh254",
+            username: "kumar oooooooooo",
+            age: 24,
+            password: "54ggffh254",
         },
         {
-            username: "guna",
+            username: "h",
             age: 22,
-            password: "424n2",
-        },
-        {
-            username: "hari",
-            age: 23,
-            password: "4242gh",
+            password: "424gfn2",
         }
-    ])
+    ], { validate: true });
 
 }).then((data) => {
     console.log("user update to database");
@@ -99,7 +97,7 @@ User.sync({ alter: true }).then(() => {
     // // TODO:// // update - way 2
     // data.decrement({ age: 2 });
 
-  // console.log('user updated', data);
+    // console.log('user updated', data);
     // // single create object
     // console.log(data.toJSON());
 
@@ -112,7 +110,7 @@ User.sync({ alter: true }).then(() => {
     })
 
 }).catch((err) => {
-    console.log(" !!! Error sync Table and Model !!!");
+    console.log(" !!! Error sync Table and Model !!!", err);
 })
 
 
