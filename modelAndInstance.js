@@ -113,4 +113,4 @@ User.sync({ alter: true }).then(() => {
     console.log(" !!! Error sync Table and Model !!!", err);
 })
 
-
+ 
